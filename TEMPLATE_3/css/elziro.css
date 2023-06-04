@@ -454,9 +454,9 @@ transition: transform var(--main-transition) , box-shadow var(--main-transition)
     position: relative;
     background-color: white;
   }
-  .features .container{    
+  .features .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
   }
   .features .box {
@@ -465,30 +465,154 @@ transition: transform var(--main-transition) , box-shadow var(--main-transition)
   }
   .features .box .img-holder {
     position: relative;
+    overflow: hidden;
   }
-  .features .box .img-holder::before{
-    content: '';
+  .features .box .img-holder::before {
+    content: "";
     position: absolute;
     left: 0;
-    right: 0;
-    top: 0;
+    top: -1px;
     width: 100%;
     height: 100%;
-
   }
-  .features .box .img-holder::after{
-    content: '';
+  .features .box .img-holder::after {
+    content: "";
     position: absolute;
     bottom: 0;
     right: 0;
     border-style: solid;
-    border-width: 100px 100px 170px 500px ;
+    border-width:0px 0px 170px 430px;
     border-color: transparent transparent white transparent;
+    transition: var(--main-transition);
   }
   .features .box .img-holder img {
     max-width: 100%;
   }
+  .features .box:hover .img-holder::after{
+    border-width:170px 500px 170px 0;
+  }
+  .features .box h2 {
+    position: relative;
+    font-size: 40px;
+    margin: auto;
+    width: fit-content;
+  }
+  .features .box h2::after{
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 15px;
+    height: 5px;
+    width:calc(100% - 30px);
+
+  }
+  .features .box p {
+    line-height: 2;
+    font-size: 20px;
+    margin: 30px 0 ;
+    padding: 25px;
+    color: #777;
+  }
+  .features .box a{
+    display: block;
+    border: 3px solid transparent;
+    width: fit-content;
+    margin:0 auto 30px; font-weight: bold; font-size: 22px;padding: 10px 30px ;border-radius: 6px;
+    transition: var(--main-transitions);
+  }  
+  .features .quality .img-holder::before {
+    background-color: rgb(244 64 54 / 60%);
+  }
+  .features .quality h2::after {
+    background-color: #f44036;
+  }
+  .features .quality a {
+    color: #f44036;
+    border-color: #f44036;
+    background: linear-gradient(to right, #f44036 50%, white 50%);
+    background-size: 200% 90%;
+    background-position: right bottom;
+  }
+  .features .time .img-holder::before {
+    background-color: rgb(0 150 136 / 60%);
+  }
+  .features .time h2::after {
+    background-color: #009688;
+  }
+  .features .time a {
+    color: #009688;
+    border-color: #009688;
+    background: linear-gradient(to right, #009688 50%, white 50%);
+    background-size: 200% 90%;
+    background-position: right bottom;
+  }
+  .features .passion .img-holder::before {
+    background-color: rgb(3 169 244 / 60%);
+  }
+  .features .passion h2::after {
+    background-color: #03a9f4;
+  }
+  .features .passion a {
+    color: #03a9f4;
+    border-color: #03a9f4;
+    background: linear-gradient(to right, #03a9f4 50%, white 50%);
+    background-size: 200% 90%;
+    background-position: right bottom;
+  }
+  .features .box:hover a {
+    background-position: left bottom;
+    color: white;
+  }
   /* End Features */
+    /* Start Testimonials */
+    .testimonials {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+    background-color: var(--section-background);
+
+    }
+    .testimonials .container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 40px;
+    }
+    .testimonials .box {
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+        border-radius: 6px;
+        position: relative;
+    }
+    .testimonials .box img {
+        position: absolute;
+        right: -10px;
+        top: -50px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 10px solid var(--section-background);
+
+    }
+    .testimonials .box h3{
+        margin: 0 0 10px;
+        color:var(--main-color) ;
+    }
+    .testimonials .box .title {
+        color: #656464;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .testimonials .box .rate .filled {
+        color: #ffc107;
+    }
+    .testimonials .box p {
+        line-height: 1.5;
+        color: #777;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    /* End Testimonials */
   /* Start Animation */
 @keyframes  up-and-down  {
     0%,
@@ -520,7 +644,6 @@ transition: transform var(--main-transition) , box-shadow var(--main-transition)
         height: 100%;
     }
 }
-
 @keyframes right-move {
     50% {
         right: 0;
